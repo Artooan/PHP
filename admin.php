@@ -27,41 +27,37 @@ if($_POST['submit']){
 }
 
 ?>
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<title>Гостьова книга</title>
-<link rel="stylesheet" rev="stylesheet" type="text/css" href="style.css"  />
+	<meta charset="utf-8">
+	<title>Гостьова книга</title>
+	<link rel="stylesheet" rev="stylesheet" type="text/css" href="style.css"  />
 </head>
-
 <body>
-
-<?php
-if(!$_SESSION['admin']){
-?>
-
-<form class="admin_login" method="post">
-	<p class="name"><input type="text" name="name" /> <label for="name"> Логін </label></p>
-	<p class="pass"><input type="password" name="pass" /> <label for="pass"> Пароль </label></p>
-	<p class="send"><input type="submit" name="submit" value="Войти" /></p>
-	
 	<?php
-	echo $_SESSION['error'];
-	unset($_SESSION['error']);
+		if(!$_SESSION['admin']){
 	?>
-	
-</form>
 
-<?php
-}else{
-	echo '<div class="admin_login">';
-	echo $_SESSION['ok'];
-	echo '</div>';
-}
-?>
+		<form class="admin_login" method="post">
+			<p class="name"><input type="text" name="name" /> <label for="name"> Логін </label></p>
+			<p class="pass"><input type="password" name="pass" /> <label for="pass"> Пароль </label></p>
+			<p class="send"><input type="submit" name="submit" value="Войти" /></p>
+			
+		<?php
+			echo $_SESSION['error'];
+			unset($_SESSION['error']);
+		?>
+		
+		</form>
 
-
+	<?php
+		}else{
+			echo '<div class="admin_login">';
+			echo $_SESSION['ok'];
+			echo '</div>';
+		}
+	?>
 
 </body>
 </html>
