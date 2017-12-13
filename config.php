@@ -11,7 +11,7 @@
 	define('ERROR', 'Заповніть поле коментування!');
 
 	mysql_connect(DB_HOST, DB_USER, DB_PASS) or die("Немає з'єднання з сервером!");
-	mysql_select_db(DB_NAME) or die("немає підключення до БД!");
+	mysql_select_db(DB_NAME) or die("Немає підключення до БД!");
 
 	mysql_query("SET NAMES 'utf8'"); //Кодіровка
 ?>
