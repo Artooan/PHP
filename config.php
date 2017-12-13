@@ -6,7 +6,8 @@
 	define('DB_PASS', '');
 	define('DB_NAME', 'Guest_Page');
 	define('ERROR', 'Заповніть поле коментарів!');
-	define('PASS', '202cb962ac59075b964b07152d234b70');
+	define('ADMIN', 'admin');
+	define('PASS', '827ccb0eea8a706c4c34a16891f84e7b'); //пароль: 12345
 	define('ERROR', 'Заповніть поле коментування!');
 
 	mysql_connect(DB_HOST, DB_USER, DB_PASS) or die("Немає з'єднання з сервером!");

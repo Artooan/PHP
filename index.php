@@ -4,6 +4,16 @@
 
 	require_once 'config.php'; //підключення фалів
 	require_once 'functions.php'; //підключення фалів
+//видалення коментаря
+	if ($_SESSION['admin']) {
+		$del = "Видалити";
+
+		if (isset($_GET['id'])) {
+			deletePost($_GET['id']);
+			header("Location: " .$_SERVER['PHP_SELF']);
+			exit;
+		}
+	}
 
 	if ($_POST['submit']) {
 		$res = AddPost($_POST['name'], $_POST['email'], $_POST['msg']);
@@ -77,7 +87,7 @@
 				</div>
 
 				<div class = "msg_footer">
-					Комментар добавлений: <?php echo $post['date']?> <b>
+					Комментар добавлений: <?php echo $post['date']?> <strong><a href="?id=<?php echo $post['id']?>"><?php echo $del ?></a></strong>
 				</div>
 			</div>
 		<?php		
