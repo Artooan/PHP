@@ -57,4 +57,12 @@
 		$query = "DELETE FROM P_Info WHERE id = $id";
 		mysql_query($query);
 	}
+
+	//теги для редагування тексту і смайли!
+	function bbTags($var){
+		$bb = array(':)', ';)', '[B]', '[/B]'); //те що хочемо замінити
+		$tag = array('<img src = "smiles/1.gif">', '<img src = "smiles/2.gif">', '<b>', '</b>'); //на що будемо заміняти!!!
+
+		return str_ireplace($bb, $tag, $var); //srt_ireplace не враховує регістр на відміну від srt_replace!!!
+	}
 ?>

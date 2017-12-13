@@ -83,7 +83,7 @@
 				</div>
 			
 				<div class = "msg_body">
-					<?php echo nl2br(clearDataClient($post['Post']))?> <!--заміняє переноси на тег <br>-->
+					<?php echo nl2br(bbTags(clearDataClient($post['Post']))) ?> <!--заміняє переноси на тег <br>-->
 				</div>
 
 				<div class = "msg_footer">
