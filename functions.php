@@ -51,6 +51,18 @@
 		return $posts;
 	}
 
+	//
+	function selectOne() {
+		$posts = array(); //якщо не оголосити змінну як масив, то foreach свариться при відсутності інфи в БД!!!
+		//реалізовано вивід коментарів до даті додавання і вивід тільки годин і хвилин!
+		$query = "SELECT id, Name, Email, Post, LEFT(date, 16) AS date FROM P_Info ORDER BY id DESC LIMIT 1";
+		$res = mysql_query($query);
+		//масив для збереження даних з БД!
+		while ($row = mysql_fetch_assoc($res)) {
+			$posts[] = $row; 
+		}
+		return $posts;
+	}
 	//видалення повідомлень
 	function deletePost($id){
 		$id = (int)$id;

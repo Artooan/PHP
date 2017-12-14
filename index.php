@@ -15,18 +15,22 @@
 		}
 	}
 
-	if ($_POST['submit']) {
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$res = AddPost($_POST['name'], $_POST['email'], $_POST['msg']);
 	//якщо отримали істину при передачі
 		if ($res) {
 			$_SESSION['res'] = $res;
-			header("Location: " .$_SERVER['PHP_SELF']); //перезагрузка сторінка 
+			//header("Location: " .$_SERVER['PHP_SELF']); //перезагрузка сторінка 
+			//Эту строку мы получим как ответ от сервера при использовании AJAX
+			echo $_SESSION['res'];
 			exit; //завершення скріпта
 		} else { //якщо поле коментаря не заповнили!
 			$_SESSION['res'] = ERROR;
+			//Эту строку мы получим как ответ от сервера при использовании AJAX
+			echo $_SESSION['res'];
 			$_SESSION['name'] = clearDataClient($_POST['name']); //якщо заповнили поле імені, але забули про коментар, то поле імені памятає введені дані!
 			$_SESSION['email'] = clearDataClient($_POST['email']); //так само і з полем email!
-			header("Location: " .$_SERVER['PHP_SELF']); //перезагрузка сторінка
+			//header("Location: " .$_SERVER['PHP_SELF']); //перезагрузка сторінка
 			exit; //завершення скріпта 
 		}
 	}
@@ -49,59 +53,65 @@
 </head>
 <body>
 	<div id="general">
-	<h2> Гостьова книга </h2>
+		<h2> Гостьова книга </h2>
 
-	<p class="open">Додати повідомлення</p>
-	<div id="form_style">
-		<form id="mainform" action="" method="post">
-			<p class="name">
-				<input type="text" name="name" value="<?php echo $_SESSION['name'] ?>" />
-				<label for="name">Ім'я</label>
-			</p>
-			
-			<p class="email">
-				<input type="text" name="email" value="<?php echo $_SESSION['email'] ?>" />
-				<label for="email" >E-Mail</label>
-			</p>
-			
-			<p class="msg">
-				<textarea name="msg" ></textarea>
-			</p>
-			
-			<input name="send" type="hidden"  />
-	<!--Не використовуємо оскільки працювати будемо з jquery!!!-->		
-			<!--<p class="send" >
-				<input type="submit" name="submit" value="Відправити"/>
-			</p>-->
-		</form>
-	</div>
-		<?php
-			echo $_SESSION['res'];
-			unset($_SESSION['res']);
-			unset($_SESSION['name']);
-			unset($_SESSION['email']);
-		?>
+		<p class="open">Додати повідомлення</p>
 
-		<?php
-			$posts = selectAll();
-			foreach ($posts as $post) {
-		?>
-			<div class="msg_container">
-				<div class = "msg_header">
-					<b><?php echo clearDataClient($post['Name'])?></b> <?php echo clearDataClient($post['Email'])?>
-				</div>
-			
-				<div class = "msg_body">
-					<?php echo nl2br(bbTags(clearDataClient($post['Post']))) ?> <!--заміняє переноси на тег <br>-->
-				</div>
+		<div id="add_Msg"></div>
 
-				<div class = "msg_footer">
-					Комментар добавлений: <?php echo $post['date']?> <strong><a href="?id=<?php echo $post['id']?>"><?php echo $del ?></a></strong>
+		<div id="form_style" title="Нове повідомлення">
+			
+			<form id="mainform" action="" method="post">
+				<p class="name">
+					<input id="name" type="text" name="name" value="<?php echo $_SESSION['name'] ?>" />
+					<label for="name">Ім'я</label>
+				</p>
+				
+				<p class="email">
+					<input id="email" type="text" name="email" value="<?php echo $_SESSION['email'] ?>" />
+					<label for="email" >E-Mail</label>
+				</p>
+				
+				<p class="msg">
+					<textarea id="msg" name="msg" ></textarea>
+				</p>
+				
+				<input name="send" type="hidden"  />
+		<!--Не використовуємо оскільки працювати будемо з jquery!!!-->		
+				<!--<p class="send" >
+					<input type="submit" name="submit" value="Відправити"/>
+				</p>-->
+			</form>
+		</div>
+
+		<div id="new_Msg"></div>
+
+			<?php
+				unset($_SESSION['res']);
+				unset($_SESSION['name']);
+				unset($_SESSION['email']);
+			?>
+
+			<?php
+				$posts = selectAll();
+				foreach ($posts as $post) {
+			?>
+				<div class="msg_container">
+					<div class = "msg_header">
+						<b><?php echo clearDataClient($post['Name'])?></b> <?php echo clearDataClient($post['Email'])?>
+					</div>
+				
+					<div class = "msg_body">
+						<?php echo nl2br(bbTags(clearDataClient($post['Post']))) ?> <!--заміняє переноси на тег <br>-->
+					</div>
+
+					<div class = "msg_footer">
+						Комментар добавлений: <?php echo $post['date']?> <strong><a href="?id=<?php echo $post['id']?>"><?php echo $del ?></a></strong>
+					</div>
 				</div>
-			</div>
-		<?php		
-			}
-		?>
+			<?php		
+				}
+			?>
 	</div>
 </body>
 </html>
