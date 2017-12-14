@@ -23,11 +23,11 @@
 ?>
 
 <p>База даних створена!</p>
-<p>Створюємо необхідні таблиці.</p>
+<p>Створюємо необхідні таблиці...</p>
 
 <?php
 	$query = "CREATE TABLE `P_Info` (
-  `id` smallint(5) UNSIGNED NOT NULL,
+  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` varchar(30) NOT NULL,
   `Email` varchar(30) NOT NULL,
   `Post` text NOT NULL,
