@@ -50,6 +50,9 @@
 <body>
 	<div id="general">
 	<h2> Гостьова книга </h2>
+
+	<p class="open">Додати повідомлення</p>
+	<div id="form_style">
 		<form id="mainform" action="" method="post">
 			<p class="name">
 				<input type="text" name="name" value="<?php echo $_SESSION['name'] ?>" />
@@ -66,12 +69,12 @@
 			</p>
 			
 			<input name="send" type="hidden"  />
-			
-			<p class="send" >
+	<!--Не використовуємо оскільки працювати будемо з jquery!!!-->		
+			<!--<p class="send" >
 				<input type="submit" name="submit" value="Відправити"/>
-			</p>
+			</p>-->
 		</form>
-
+	</div>
 		<?php
 			echo $_SESSION['res'];
 			unset($_SESSION['res']);

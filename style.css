@@ -130,3 +130,33 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 	top:50%;
 	margin:-100px 0 0 -150px;
 }
+.open
+{
+	cursor: pointer;
+	text-align: center;
+	margin-bottom: 10px;
+	border: 1px solid #224b79;
+	padding: 4px;
+	width: 200px;
+	background: #91acc9;
+	font: Verdana, Geneva, sans-serif;
+	font-size: 18px;
+	color: #ffffff;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.open:hover
+{
+	border: 2px solid #ff0400;
+}
+button
+{
+	border: 1px solid #224b79;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	width: auto;
+	background: #91acc9;
+	font-family: Verdana, Geneva, sans-serif;
+}
