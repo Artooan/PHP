@@ -40,6 +40,8 @@
 	<meta charset="utf-8">
 	<title>Гостьова книга</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--Шрифти з google.com/fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans|Quicksand" rel="stylesheet">
 </head>
 <body>
 	<div id="general">

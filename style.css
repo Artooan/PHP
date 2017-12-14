@@ -1,23 +1,25 @@
 #general {
+	background: #edeef0;
 	margin: 0 auto;
-	border: 3px solid #EEEEEE;
+	border: 3px solid #4b77a8;
 	width: 800px;
 	-webkit-birder-radius: 6px;
 	-moz-border-radius: 6px;
+	border-radius: 6px;
 	padding: 5px 5px 5px 5px;
 }
 
 div.msg_container {
 	
 	margin-bottom: 10px;
-	border: 2px solid #999;
+	border: 2px solid #4b77a8;
 	
 }
 
 .msg_header {
 
 	background: #CCC;
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid #97b3cb;
 	padding: 3px 3px 3px 3px;
 	
 }
@@ -31,7 +33,7 @@ div.msg_container {
 .msg_footer {
 
 	background: #E5E5E5;
-	border-top: 1px solid #BBB;
+	border-top: 1px solid #97b3cb;
 	padding: 5px 5px 5px 5px;
 	color: #AAA;
 	
@@ -45,13 +47,14 @@ div.msg_container {
 }
 
 input, textarea {
-	border: solid 1px #CCCCCC;
+	border: solid 2px #224b79;
 	
 	padding: 4px;
 	outline: 0;
-	font: Verdana, Geneva, sans-serif;
+	font-family: 'Quicksand', sans-serif;
+	color: #ffffff;
 	width: 200px;
-	background: #F9F9F9;
+	background: #91acc9;
 	-webkit-birder-radius: 4px;
 	-moz-border-radius: 4px;
 }
@@ -76,26 +79,27 @@ textarea {
 .send input {
 	width: auto;
 	margin-bottom: 10px;
-	border: 2px solid #E0E0F3;
+	border: 2px solid #224b79;
 	font: Verdana, Geneva, sans-serif;
-	background-color: #E5E5F8;
+	background-color: #91acc9;
+	font-size: 18px;
 }
 
 
 
 input:hover, textarea:hover, input:focus, textarea:focus {
-	border-color: #A0A0A0;
+	border-color: #ff0400;
 }
 
 .send input:hover {
-	border: 2px solid #C0C0E3;
+	border: 2px solid #ff0400;
 }
 
 #mainform {
 
 	margin-top: 20px;
 	margin-left: 10px;
-	border-top: 1px solid #e3e3e3;
+	border-top: 2px solid #4b77a8;
 	
 }
 #general table {
@@ -114,11 +118,12 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 }	
 #general h2  {
 	text-align: center;
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 .admin_login{
 	width:300px;
-	border:1px solid #ccc;
+	border:3px solid #4b77a8;
 	padding:15px;
 	position:absolute;
 	left:50%;
