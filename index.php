@@ -38,6 +38,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/G_P.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery-ui.css">
 	<title>Гостьова книга</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<!--Шрифти з google.com/fonts-->
